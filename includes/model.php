@@ -16,7 +16,7 @@ class model
             unset($conditions['pwd']);
         }
 
-        
+
         $where = [];
         foreach ($conditions as $column => $value) {
             $where[] = "$column = :$column";
@@ -32,11 +32,9 @@ class model
 
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        
         if ($password !== null) {
             foreach ($results as $key => $row) {
-                if (!isset($row['pwd']) || !password_verify($password, $row['pwd'])) {
+                if (!isset($row['pwd']) && !password_verify($password, $row['pwd'])) {
                     unset($results[$key]);
                 }
             }
@@ -50,7 +48,7 @@ class model
     public function insert_record($table, $data = [])
     {
         if (isset($data['pwd'])) {
-            $data['pwd'] = md5($data['password']);
+            $data['pwd'] = md5($data['pwd']);
         }
 
         $columns = implode(', ', array_keys($data));

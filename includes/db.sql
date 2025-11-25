@@ -26,12 +26,12 @@ tester VARCHAR(55) NOT NULL,
 result VARCHAR(55) NOT NULL,
 created timestamp DEFAULT CURRENT_DATE
 );
-
 CREATE TABLE users (
 id int(11) PRIMARY KEY AUTO_INCREMENT,
+user_id int(11) NOT NULL,
 username VARCHAR(55) NOT NULL,
 fullname VARCHAR(55) NOT NULL,
 role VARCHAR(55) NOT NULL,
-pwd VARCHAR(55) NOT NULL,
+pwd VARCHAR(255) NOT NULL,
 created timestamp DEFAULT CURRENT_DATE
 );

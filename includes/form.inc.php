@@ -26,13 +26,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $check_admin = $controller->check_record('admin', ['name' => $name, 'pwd' => $pwd]);
     $check_user = $controller->check_record('users', ['username' => $name, 'pwd' => $pwd]);
+    // echo '<pre>';
+    // print_r($check_user);
+    // echo '</pre>';
+    // exit;
     if ($check_admin) {
         $row = $check_admin[0]; 
         $_SESSION['admin_id'] = $row['id'];
         $_SESSION['admin_username'] = $row['name'];
         header('Location: ../admin/index.php?admin');
         exit;
-    } elseif ($check_user) {
+    }
+     elseif ($check_user) {
+        $row = $check_user[0]; 
         $_SESSION['admin_id'] = $row['id'];
         $_SESSION['admin_username'] = $row['username'];
         header('Location: ../admin/index.php?admin');
