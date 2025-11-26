@@ -7,6 +7,8 @@ created_at timestamp DEFAULT CURRENT_DATE
 
 INSERT INTO `admin`(`name`, `pwd`) VALUES ('admin','admin123');
 INSERT INTO `admin`(`name`, `pwd`) VALUES ('test','test');
+INSERT INTO `users`(`user_id`, `username`, `fullname`, `role`, `pwd`) VALUES ('123','samad','Abdul Samad','manager','2222');
+
 
 
 CREATE TABLE products (

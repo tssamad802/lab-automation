@@ -7,7 +7,7 @@ require_once '../includes/model.php';
 require_once '../includes/control.php';
 $view = new view();
 $admin = new AdminAuth();
-$admin->check();
+$admin->check_role(['admin', 'manager']);
 $db = new database();
 $conn = $db->connection();
 $controller = new controller($conn);
@@ -118,7 +118,8 @@ $controller = new controller($conn);
   <!-- Main Content -->
   <div class="main-content">
     <div class="topbar d-flex justify-content-end align-items-center mb-4">
-      <span class="username"><?php echo $admin->show_admin_name(); ?></span>
+      <span class="username"><?php echo $admin->get_role_name('admin'); ?></span>
+      <span class="username"><?php echo $admin->get_role_name('manager'); ?></span>
       <a href="../includes/logout.php"><button class="btn btn-outline-danger btn-sm">Logout</button></a>
     </div>
 

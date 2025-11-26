@@ -7,7 +7,7 @@ require_once '../../includes/model.php';
 require_once '../../includes/control.php';
 $view = new view();
 $admin = new AdminAuth();
-$admin->check();
+$admin->check_role(['admin', 'manager']);
 $db = new database();
 $conn = $db->connection();
 $controller = new controller($conn);

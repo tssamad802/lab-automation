@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $db = new database();
     $conn = $db->connection();
-    $controller  = new controller($conn);
+    $controller = new controller($conn);
 
     $errors = [];
 
@@ -25,26 +25,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $check_admin = $controller->check_record('admin', ['name' => $name, 'pwd' => $pwd]);
-    $check_user = $controller->check_record('users', ['username' => $name, 'pwd' => $pwd]);
+    $check_manager = $controller->check_record('users', ['username' => $name, 'pwd' => $pwd]);
     // echo '<pre>';
-    // print_r($check_user);
+    // print_r($check_admin);
     // echo '</pre>';
     // exit;
     if ($check_admin) {
-        $row = $check_admin[0]; 
+        $row = $check_admin[0];
         $_SESSION['admin_id'] = $row['id'];
         $_SESSION['admin_username'] = $row['name'];
+        // $test = $_SESSION['admin_id'] . $_SESSION['admin_username'];
+        // echo $test;
+        // exit;
         header('Location: ../admin/index.php?admin');
         exit;
-    }
-     elseif ($check_user) {
-        $row = $check_user[0]; 
-        $_SESSION['admin_id'] = $row['id'];
-        $_SESSION['admin_username'] = $row['username'];
+    } elseif ($check_manager[0]['role'] == 'Manager') {
+        //  echo '<pre>';
+        //  print_r($check_manager);
+        //  echo $check_manager[0]['role'];
+        //  echo '</pre>';
+        $row = $check_manager[0];
+        $_SESSION['manager_id'] = $row['user_id'];
+        $_SESSION['manager_username'] = $row['username'];
+        // $test = $_SESSION['manager_id'] . $_SESSION['manager_username'];
+        // echo $test;
+        // exit;
         header('Location: ../admin/index.php?admin');
         exit;
-    } 
-    else {
+    } else {
         $_SESSION['errors'] = ['Invalid Information'];
         header('Location: ../form.php');
         exit;
