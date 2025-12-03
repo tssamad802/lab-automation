@@ -22,7 +22,6 @@ class model
             $where[] = "$column = :$column";
         }
         $where_clause = $where ? implode(' AND ', $where) : '1';
-
         $sql = "SELECT * FROM $table WHERE $where_clause";
         $stmt = $this->conn->prepare($sql);
 
@@ -39,7 +38,6 @@ class model
                 }
             }
         }
-
         return $results;
     }
 
@@ -48,7 +46,7 @@ class model
     public function insert_record($table, $data = [])
     {
         if (isset($data['pwd'])) {
-            $data['pwd'] = md5($data['pwd']);
+            $data['pwd'] = password_hash($data['pwd'], PASSWORD_DEFAULT);
         }
 
         $columns = implode(', ', array_keys($data));

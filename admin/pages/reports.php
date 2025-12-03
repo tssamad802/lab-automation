@@ -3,7 +3,7 @@ require_once '../../includes/config.session.inc.php';
 require_once '../../includes/AdminAuth.php';
 require_once '../../includes/view.php';
 $admin = new AdminAuth();
-$admin->check_role(['admin', 'manager']);
+$admin->check_role(['admin', 'manager', 'viewer', 'tester']);
 $view = new view();
 $records = $view->getSearchData();
 ?>

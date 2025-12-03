@@ -32,6 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $errors[] = "Record already exists.";
     }
 
+
+    $result = $controller->check_record('users', ['username' => $username, 'pwd' => $pwd]);
+    echo '<pre>';
+    print_r($result);
+    echo '</pre>';
+    exit;
+
     if ($errors) {
         $_SESSION['errors'] = $errors;
         header('Location: ../admin/pages/users.php');

@@ -25,7 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $check_admin = $controller->check_record('admin', ['name' => $name, 'pwd' => $pwd]);
-    $check_manager = $controller->check_record('users', ['username' => $name, 'pwd' => $pwd]);
+    //  echo '<pre>';
+    // print_r($check_admin);
+    // echo '</pre>';
+    // exit;
+    $user = $controller->check_record('users', ['username' => $name, 'pwd' => $pwd]);
     // echo '<pre>';
     // print_r($check_admin);
     // echo '</pre>';
@@ -34,22 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $row = $check_admin[0];
         $_SESSION['admin_id'] = $row['id'];
         $_SESSION['admin_username'] = $row['name'];
-        // $test = $_SESSION['admin_id'] . $_SESSION['admin_username'];
-        // echo $test;
-        // exit;
         header('Location: ../admin/index.php?admin');
         exit;
-    } elseif ($check_manager[0]['role'] == 'Manager') {
-        //  echo '<pre>';
-        //  print_r($check_manager);
-        //  echo $check_manager[0]['role'];
-        //  echo '</pre>';
-        $row = $check_manager[0];
-        $_SESSION['manager_id'] = $row['user_id'];
-        $_SESSION['manager_username'] = $row['username'];
-        // $test = $_SESSION['manager_id'] . $_SESSION['manager_username'];
-        // echo $test;
-        // exit;
+    } elseif (!empty($user)) {
+        $row = $user[0];
+        $role = $row['role']; // Manager, Viewer, Tester
+
+        $_SESSION[strtolower($role) . '_id'] = $row['user_id'];
+        $_SESSION[strtolower($role) . '_username'] = $row['username'];
         header('Location: ../admin/index.php?admin');
         exit;
     } else {

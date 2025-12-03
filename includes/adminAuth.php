@@ -21,7 +21,7 @@ class AdminAuth
         $name_key = $role . '_username';
 
         if (isset($_SESSION[$name_key])) {
-            return $_SESSION[$name_key];
+            return "<div style='color: #01000a;font-size: 1.3rem;font-weight: 600;background-color: #c9c5c5; border-radius: 0.3rem;padding-left: 10px;padding-right: 10px;box-shadow: 2px 2px 2px #9d9292;'>" . $_SESSION[$name_key] . "</div>";
         }
         return null;
     }

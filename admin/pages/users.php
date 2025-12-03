@@ -7,7 +7,7 @@ require_once '../../includes/model.php';
 require_once '../../includes/control.php';
 $view = new view();
 $admin = new AdminAuth();
-$admin->check_role(['admin', 'manager']);
+$admin->check_role(['admin', 'manager', 'viewer', 'tester']);
 $db = new database();
 $conn = $db->connection();
 $controller = new controller($conn);
@@ -18,7 +18,7 @@ $fetching_users = $controller->fetch_records('users');
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>User Management</title>
 
     <!-- Bootstrap -->
