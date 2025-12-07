@@ -8,12 +8,8 @@ class AdminAuth
             $name_key = $role . '_username';
 
             if (isset($_SESSION[$id_key]) && isset($_SESSION[$name_key])) {
-<<<<<<< HEAD
                 $access_role = $id_key . "<br>" . $name_key;
                 return $access_role;
-=======
-                return true; // ek valid role mil gaya
->>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
             }
         }
         // agar koi role match nahi hua
@@ -31,7 +27,7 @@ class AdminAuth
         return null;
     }
 
-<<<<<<< HEAD
+    
     public function can_access($allowd = [])
     {
         foreach ($allowd as $role) {
@@ -42,6 +38,4 @@ class AdminAuth
         return false;
     }
 
-=======
->>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
 }

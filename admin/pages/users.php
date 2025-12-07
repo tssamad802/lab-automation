@@ -18,11 +18,8 @@ $fetching_users = $controller->fetch_records('users');
 
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-=======
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
->>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
     <title>User Management</title>
 
     <!-- Bootstrap -->
@@ -54,28 +51,20 @@ $fetching_users = $controller->fetch_records('users');
         <!-- Title + Add User Button -->
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="page-title">User Management</h2>
-<<<<<<< HEAD
             <?php if($admin->can_access(['admin','manager','tester'])): ?>
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">Add User</a>
             <?php endif; ?>
-=======
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">Add User</a>
->>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
         </div>
 
         <!-- Full Screen Add User Modal -->
         <div class="modal fade" id="addUserModal" tabindex="-1">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
-
-<<<<<<< HEAD
-=======
                     <!-- Header -->
                     <div class="modal-header">
                         <h5 class="modal-title">Add New User</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
->>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
 
                     <!-- Fullscreen Body -->
                     <div class="modal-body">
@@ -151,7 +140,6 @@ $fetching_users = $controller->fetch_records('users');
                     <?php
                     if (!empty($fetching_users)) {
                         foreach ($fetching_users as $row) {
-<<<<<<< HEAD
                             ?>
                             <tr>
                                 <td><?php echo $row['id'] ?></td>
@@ -164,20 +152,6 @@ $fetching_users = $controller->fetch_records('users');
                         }
                     } else {
                         echo "<tr><td colspan='7' class='text-center'>No results found.</td></tr>";
-=======
-                    ?>
-                    <tr>
-                        <td><?php echo $row['id'] ?></td>
-                        <td><?php echo $row['username'] ?></td>
-                        <td><?php echo $row['fullname'] ?></td>
-                        <td><?php echo $row['role'] ?></td>
-                        <td><?php echo $row['created'] ?></td>
-                    </tr>
-                    <?php
-                        }
-                    } else {
-                       echo "<tr><td colspan='7' class='text-center'>No results found.</td></tr>";
->>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
                     }
                     ?>
                 </tbody>
