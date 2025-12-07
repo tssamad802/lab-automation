@@ -64,9 +64,13 @@ $fetching_products = $controller->fetch_records('products');
   <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h3>Products List</h3>
+<<<<<<< HEAD
       <?php if($admin->can_access(['admin','manager','tester'])): ?>
       <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addProductModal">Add Product</button>
       <?php endif; ?>
+=======
+      <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addProductModal">Add Product</button>
+>>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
     </div>
 
     <!-- Full Screen Modal (REAL FULLSCREEN) -->

@@ -33,11 +33,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
 
+<<<<<<< HEAD
     // $result = $controller->check_record('users', ['username' => $username, 'pwd' => $pwd]);
     // echo '<pre>';
     // print_r($result);
     // echo '</pre>';
     // exit;
+=======
+    $result = $controller->check_record('users', ['username' => $username, 'pwd' => $pwd]);
+    echo '<pre>';
+    print_r($result);
+    echo '</pre>';
+    exit;
+>>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
 
     if ($errors) {
         $_SESSION['errors'] = $errors;

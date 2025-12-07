@@ -37,7 +37,10 @@ class model
                     unset($results[$key]);
                 }
             }
+<<<<<<< HEAD
             $results = array_values($results);
+=======
+>>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
         }
         return $results;
     }

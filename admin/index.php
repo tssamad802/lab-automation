@@ -11,6 +11,10 @@ $admin->check_role(['admin', 'manager', 'viewer', 'tester']);
 $db = new database();
 $conn = $db->connection();
 $controller = new controller($conn);
+<<<<<<< HEAD
+=======
+
+>>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
 ?>
 <!-- layout.html -->
 <!DOCTYPE html>

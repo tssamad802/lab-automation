@@ -61,7 +61,10 @@ $fetching_testing = $controller->fetch_records('testing');
   <div class="container-fluid">
 
     <!-- TESTING FORM -->
+<<<<<<< HEAD
      <?php if($admin->can_access(['admin','tester'])): ?>
+=======
+>>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
     <div class="section-box">
       <h3 class="mb-3">Add Test Record</h3>
       <form action="../../includes/test.inc.php" method="POST">
@@ -110,7 +113,11 @@ $fetching_testing = $controller->fetch_records('testing');
       </form>
       <?php $view->display_errors(); ?>
     </div>
+<<<<<<< HEAD
 <?php endif; ?>
+=======
+
+>>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
     <!-- TESTING TABLE -->
     <div class="section-box">
       <h3 class="mb-3">Testing Records</h3>
@@ -138,7 +145,11 @@ $fetching_testing = $controller->fetch_records('testing');
               <td><?php echo $row['type']; ?></td>
               <td><?php echo $row['tester']; ?></td>
               <td><?php echo $row['date']; ?></td>
+<<<<<<< HEAD
               <td><span class="badge bg-success"><?php echo $row['result']; ?></span></td>
+=======
+              <td><span class="badge bg-success">Passed</span></td>
+>>>>>>> cd3b74942f1ffd18202cd078c8078a3678905176
               <td><button class="btn btn-sm btn-view" data-bs-toggle="modal" data-bs-target="#dummyModal"
                   data-name="<?php echo $row['product']; ?>" data-type="<?php echo $row['type']; ?>"
                   data-tester="<?php echo $row['tester']; ?>" data-date="<?php echo $row['date']; ?>"
