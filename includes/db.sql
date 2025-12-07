@@ -1,0 +1,39 @@
+CREATE TABLE admin (
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(55) NOT NULL,
+pwd VARCHAR(55) NOT NULL,
+created_at timestamp DEFAULT CURRENT_DATE
+);
+
+INSERT INTO `admin`(`name`, `pwd`) VALUES ('admin','admin123');
+INSERT INTO `admin`(`name`, `pwd`) VALUES ('test','test');
+INSERT INTO `users`(`user_id`, `username`, `fullname`, `role`, `pwd`) VALUES ('123','samad','Abdul Samad','manager','2222');
+
+
+
+CREATE TABLE products (
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(55) NOT NULL,
+type VARCHAR(55) NOT NULL,
+mfg_date VARCHAR(55) NOT NULL,
+created timestamp DEFAULT CURRENT_DATE
+);
+
+CREATE TABLE testing (
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+product VARCHAR(55) NOT NULL,
+type VARCHAR(55) NOT NULL,
+tester VARCHAR(55) NOT NULL,
+`date` VARCHAR(55) NOT NULL,
+result VARCHAR(55) NOT NULL,
+created timestamp DEFAULT CURRENT_DATE
+);
+CREATE TABLE users (
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+user_id int(11) NOT NULL,
+username VARCHAR(55) NOT NULL,
+fullname VARCHAR(55) NOT NULL,
+role VARCHAR(55) NOT NULL,
+pwd VARCHAR(255) NOT NULL,
+created timestamp DEFAULT CURRENT_DATE
+);
