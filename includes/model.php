@@ -33,7 +33,7 @@ class model
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if ($password !== null) {
             foreach ($results as $key => $row) {
-                if (!isset($row['pwd']) && !password_verify($password, $row['pwd'])) {
+                if (!password_verify($password, $row['pwd'])) {
                     unset($results[$key]);
                 }
             }
@@ -118,6 +118,13 @@ class model
         return $stmt->fetchColumn();
     }
 
+    public function get_recent_records($table, $limit = 10)
+    {
+        $sql = "SELECT * FROM $table ORDER BY id DESC LIMIT $limit";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchALL(PDO::FETCH_ASSOC);
+    }
 }
 
 ?>

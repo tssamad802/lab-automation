@@ -105,7 +105,9 @@ $controller = new controller($conn);
 <body>
   <!-- Sidebar -->
   <div class="sidebar d-flex flex-column p-3">
-    <h4 class="text-center mb-4">Admin Panel</h4>
+    <a href="./pages/recent_records.php" target="contentFrame">
+      <h4 class="text-center mb-4">Admin Panel</h4>
+    </a>
     <ul class="nav nav-pills flex-column">
       <li class="nav-item"><a class="nav-link" href="./pages/products.php" target="contentFrame">Products</a></li>
       <li class="nav-item"><a class="nav-link" href="./pages/testing.php" target="contentFrame">Testing</a></li>
@@ -153,8 +155,31 @@ $controller = new controller($conn);
     </div>
 
     <!-- Single Dynamic Content iframe -->
-    <iframe src="./pages/products.php" name="contentFrame"></iframe>
+    <iframe src="./pages/recent_records.php" name="contentFrame"></iframe>
+
+    <?php
+    // $passed = $controller->countByResult('Passed');
+    // $failed = $controller->countByResult('Failed');
+    // $total = $controller->countRows('testing');
+
+    // // Total section will fill the remaining part
+    // $passedPercent = ($total > 0) ? ($passed / $total) * 100 : 0;
+    // $failedPercent = ($total > 0) ? ($failed / $total) * 100 : 0;
+    // $totalPercent = 100 - ($passedPercent + $failedPercent);
+
+    // // Ranges for gradient
+    // $range1 = $passedPercent;
+    // $range2 = $passedPercent + $failedPercent;
+    ?>
+
+
+
+
+
+
   </div>
+
 </body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </html>

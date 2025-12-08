@@ -53,7 +53,7 @@ $fetching_users = $controller->fetch_records('users');
             <h2 class="page-title">User Management</h2>
             <?php if($admin->can_access(['admin','manager','tester'])): ?>
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">Add User</a>
-            <?php endif; ?>
+            <?php endif; ?> 
         </div>
 
         <!-- Full Screen Add User Modal -->

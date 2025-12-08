@@ -61,56 +61,56 @@ $fetching_testing = $controller->fetch_records('testing');
   <div class="container-fluid">
 
     <!-- TESTING FORM -->
-     <?php if($admin->can_access(['admin','tester'])): ?>
-    <div class="section-box">
-      <h3 class="mb-3">Add Test Record</h3>
-      <form action="../../includes/test.inc.php" method="POST">
-        <div class="row g-3">
+    <?php if ($admin->can_access(['admin', 'tester'])): ?>
+      <div class="section-box">
+        <h3 class="mb-3">Add Test Record</h3>
+        <form action="../../includes/test.inc.php" method="POST">
+          <div class="row g-3">
 
-          <div class="col-md-4">
-            <label class="form-label">Product</label>
-            <input type="text" class="form-control" placeholder="Enter product name" name="name">
+            <div class="col-md-4">
+              <label class="form-label">Product</label>
+              <input type="text" class="form-control" placeholder="Enter product name" name="name">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Test Type</label>
+              <select class="form-select" name="type">
+                <option>Select Test Type</option>
+                <option>Quality Check</option>
+                <option>Performance</option>
+                <option>Safety Test</option>
+                <option>Durability</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Tester</label>
+              <input type="text" class="form-control" placeholder="Enter tester name" name="tester">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Test Date</label>
+              <input type="date" class="form-control" name="date">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Result</label>
+              <select class="form-select" name="result">
+                <option>Select Result</option>
+                <option>Passed</option>
+                <option>Failed</option>
+              </select>
+            </div>
+
+            <div class="col-md-12 text-end">
+              <button type="submit" class="btn btn-submit">Submit Test</button>
+            </div>
+
           </div>
-
-          <div class="col-md-4">
-            <label class="form-label">Test Type</label>
-            <select class="form-select" name="type">
-              <option>Select Test Type</option>
-              <option>Quality Check</option>
-              <option>Performance</option>
-              <option>Safety Test</option>
-              <option>Durability</option>
-            </select>
-          </div>
-
-          <div class="col-md-4">
-            <label class="form-label">Tester</label>
-            <input type="text" class="form-control" placeholder="Enter tester name" name="tester">
-          </div>
-
-          <div class="col-md-4">
-            <label class="form-label">Test Date</label>
-            <input type="date" class="form-control" name="date">
-          </div>
-
-          <div class="col-md-4">
-            <label class="form-label">Result</label>
-            <select class="form-select" name="result">
-              <option>Select Result</option>
-              <option>Passed</option>
-              <option>Failed</option>
-            </select>
-          </div>
-
-          <div class="col-md-12 text-end">
-            <button type="submit" class="btn btn-submit">Submit Test</button>
-          </div>
-
-        </div>
-      </form>
-      <?php $view->display_errors(); ?>
-    </div>
-<?php endif; ?>
+        </form>
+        <?php $view->display_errors(); ?>
+      </div>
+    <?php endif; ?>
     <!-- TESTING TABLE -->
     <div class="section-box">
       <h3 class="mb-3">Testing Records</h3>
